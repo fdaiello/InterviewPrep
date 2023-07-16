@@ -12,6 +12,25 @@ namespace InterviewPrep
         }
         public static void WhatFlavors(List<int> cost, int money)
         {
+            int i = 0;
+            while (true)
+            {
+                int v = cost[0];
+                cost.RemoveAt(0);
+                int x = cost.IndexOf(money - v);
+                if (x < 0)
+                {
+                    i++;
+                }
+                else
+                {
+                    Console.WriteLine("{0} {1}", i + 1, x + i + 2);
+                    return;
+                }
+            }
+        }
+        public static void WhatFlavors1(List<int> cost, int money)
+        {
             var map = new Dictionary<int, int>();
 
             for (int i = 0; i < cost.Count-1; i++) 
