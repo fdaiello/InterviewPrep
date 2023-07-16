@@ -13,7 +13,27 @@ namespace InterviewPrep
     {
         static void Main(string[] args)
         {
-            TestGridChallenge();
+            TestPairs();
+        }
+        public static int Pairs(int k, List<int> arr)
+        {
+            var l = new List<int>();
+            int c = 0;
+
+            for (int i = 0; i < arr.Count; i++)
+            {
+                if (l.Contains(arr[i] - k))
+                    c++;
+                if (l.Contains(arr[i] + k))
+                    c++;
+                l.Add(arr[i]);
+            }
+
+            return c;
+        }
+        public static void TestPairs()
+        {
+            Console.WriteLine(Pairs(2, new List<int>() { 1, 5, 3, 4, 2 }));
         }
         public static string gridChallenge(List<string> grid)
         {
